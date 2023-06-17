@@ -1,5 +1,6 @@
 import unittest
 from unittest import mock
+from unittest.mock import Mock
 from lambda_get import lambda_handler
 
 class TestLambdaFunction(unittest.TestCase):
@@ -20,9 +21,10 @@ class TestLambdaFunction(unittest.TestCase):
 
                 # Calling the Lambda function
                 result = lambda_handler(event={}, context={})
+                print("Cacca is " + result)
 
                 # Assertions
-                self.assertEqual(result["body"], expected_data)
+                self.assertEqual(result, expected_data)
                 mock_resource.assert_called_once_with('dynamodb')
                 mock_table.assert_called_once_with('visitors')
                 mock_table.return_value.get_item.assert_called_once_with(Key={'visits': 42})
