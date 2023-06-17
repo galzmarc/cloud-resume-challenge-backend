@@ -21,7 +21,9 @@ class TestLambdaFunction(unittest.TestCase):
 
                 # Calling the Lambda function
                 result = lambda_handler(event={}, context={})
-                print("Cacca is " + result)
+                print("Cacca start")
+                print(result)
+                print("Cacca end")
 
                 # Assertions
                 self.assertEqual(result, expected_data)
