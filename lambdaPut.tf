@@ -7,7 +7,7 @@ resource "aws_iam_role" "lambda_put_DynamoDB" {
 # Create Lambda function to PUT to DynamoDB
 data "archive_file" "python_lambdaPut_package" {
   type        = "zip"
-  source_file = "${path.module}/lambda-put-visits.py"
+  source_file = "${path.module}/lambda_put.py"
   output_path = "lambda_put.zip"
 }
 
@@ -17,7 +17,7 @@ resource "aws_lambda_function" "lambdaPut" {
   source_code_hash = data.archive_file.python_lambdaPut_package.output_base64sha256
   role             = aws_iam_role.lambda_put_DynamoDB.arn
   runtime          = "python3.10"
-  handler          = "lambda-put-visits.lambda_handler"
+  handler          = "lambda_put.lambda_handler"
 }
 
 # Attach AmazonDynamoDBFullAccess policy
