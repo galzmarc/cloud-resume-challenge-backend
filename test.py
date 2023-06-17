@@ -12,7 +12,7 @@ class TestLambdaFunction(unittest.TestCase):
         mock_dynamodb_response = {'Item': {'visits': 42}}
         
         # Mocking DynamoDB get_item method
-        mock_table.return_value.get_item.return_value = mock_dynamodb_response 
+        mock_table.get_item.return_value = mock_dynamodb_response 
         
         # Calling the Lambda function
         result = lambda_handler(event={}, context={})
