@@ -22,7 +22,7 @@ class TestLambdaFunction(unittest.TestCase):
                 result = lambda_handler(event={}, context={})
 
                 # Assertions
-                self.assertEqual(result.body, expected_data)
+                self.assertEqual(result["body"], expected_data)
                 mock_resource.assert_called_once_with('dynamodb')
                 mock_table.assert_called_once_with('visitors')
                 mock_table.return_value.get_item.assert_called_once_with(Key={'visits': 42})
