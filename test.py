@@ -1,4 +1,5 @@
 import unittest
+from unittest import mock
 from lambda_get import lambda_handler
 
 class TestLambdaFunction(unittest.TestCase):
@@ -12,8 +13,8 @@ class TestLambdaFunction(unittest.TestCase):
         }
 
         # Patching the DynamoDB resource and table
-        with unittest.mock.patch('boto3.resource') as mock_resource:
-            with unittest.mock.patch('boto3.resource.Table') as mock_table:
+        with mock.patch('boto3.resource') as mock_resource:
+            with mock.patch('boto3.resource.Table') as mock_table:
                 # Mocking DynamoDB get_item method
                 mock_table.return_value.get_item.return_value = mock_dynamodb_response
 
