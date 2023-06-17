@@ -19,7 +19,7 @@ class TestLambdaFunction(unittest.TestCase):
                 mock_table.return_value.get_item.return_value = mock_dynamodb_response
 
                 # Calling the Lambda function
-                result = lambda_handler('123')
+                result = lambda_handler(event={}, context={})
 
                 # Assertions
                 self.assertEqual(result, expected_data)
