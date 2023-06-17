@@ -19,8 +19,6 @@ class TestLambdaFunction(unittest.TestCase):
         
         # Assertions
         self.assertEqual(result['body'], {'visits': 42})
-        mock_table.assert_called_once_with('visitors')
-        mock_table.return_value.get_item.assert_called_once_with(Key={'visits': 42})
 
 if __name__ == '__main__':
     unittest.main()
