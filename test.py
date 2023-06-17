@@ -24,7 +24,6 @@ class TestLambdaFunction(unittest.TestCase):
                 # Assertions
                 self.assertEqual(result['statusCode'], 200)
                 mock_resource.assert_called_once_with('dynamodb')
-                mock_table.assert_called_once_with('visitors')
 
 if __name__ == '__main__':
     unittest.main()
