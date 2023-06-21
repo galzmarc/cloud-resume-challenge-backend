@@ -6,43 +6,21 @@ This repository contains the backend code for my submission to the Cloud Resume 
 
 The backend is built using serverless architecture on AWS, leveraging various services such as AWS Lambda, API Gateway, and DynamoDB. It serves as the backend for the frontend application, handling requests from the contact form and visitor counter.
 
+Everything is then deployed using IaC with Terraform.
+
 ## Technologies Used
 
-- AWS Lambda: [Brief description or version]
-- API Gateway: [Brief description or version]
-- DynamoDB: [Brief description or version]
-- [List other technologies/libraries used]
-
-## Prerequisites
-
-To run this application locally or deploy it, you need to have the following prerequisites installed:
-
-- [List prerequisites with versions, e.g., Node.js, AWS CLI]
-
-## Getting Started
-
-Follow these instructions to set up and deploy the backend application:
-
-1. Clone this repository: `git clone [repository URL]`
-2. Install dependencies: [Specify any installation steps]
-3. Configure AWS credentials: [Provide instructions to set up AWS credentials]
-4. Configure environment variables: [Specify if any environment variables need to be set]
-5. Deploy the backend: [Provide steps to deploy the backend to AWS]
+- API Gateway: Gets called from the JavaScript file in the frontend with two different methods, GET and PUT. Each method calls a different Lambda function.
+- AWS Lambda: Two different functions triggered by API Gateway, one writes to DynamoDB and the other ones reads the data. Both functions are written in Python.
+- DynamoDB: Hosts a simple visitor counter, and responds to Lambda functions
+- Terraform: Used to deploy the backend with IaC.
+- GitHub Actions: For CI/CD, performs a simple mock test on the GET Lambda function.
 
 ## APIs and Endpoints
 
-- [Describe the APIs and endpoints available in the backend]
-- [Include any necessary details or instructions for usage]
-
-## Database Schema
-
-- [If applicable, describe the database schema or structure]
+API Gateway has been configured using two different methods, GET and PUT. Each method triggers a distinct Lambda function, one that increases the visits counter on DynamoDB, and another one that fetches the counter and returns it. The visits counter is then displayed on the frontend.
 
 ## Resources
 
-- [Link to the frontend repository]
-- [Other relevant resources or documentation links]
-
-## License
-
-[Specify the license for your code]
+- Frontend repo: https://github.com/galzmarc/cloud-resume-challenge-frontend
+- Cloud Resume Challenge official website: https://cloudresumechallenge.dev/instructions
