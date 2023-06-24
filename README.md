@@ -22,5 +22,6 @@ API Gateway has been configured using two different methods, GET and PUT. Each m
 
 ## Resources
 
+- The final result: https://galzmarc.com
 - Frontend repo: https://github.com/galzmarc/cloud-resume-challenge-frontend
 - Cloud Resume Challenge official website: https://cloudresumechallenge.dev/docs/the-challenge/aws/
